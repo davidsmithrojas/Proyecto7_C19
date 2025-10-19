@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #007bff;
+            margin: 0;
+            font-size: 28px;
+        }
+        .order-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .order-info h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .items-table th,
+        .items-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .items-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .items-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .total-section {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .total-final {
+            font-weight: bold;
+            font-size: 18px;
+            color: #007bff;
+            border-top: 2px solid #007bff;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .shipping-info {
+            background-color: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .payment-info {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>¡Gracias por tu compra!</h1>
+            <p>Hola {{userName}}, tu pedido ha sido confirmado</p>
+        </div>
+
+        <div class="order-info">
+            <h2>Detalles del Pedido</h2>
+            <p><strong>Número de Pedido:</strong> #{{orderNumber}}</p>
+            <p><strong>Fecha:</strong> {{orderDate}}</p>
+            <p><strong>Estado del Pago:</strong> 
+                <span class="status {{#if (eq paymentStatus 'succeeded')}}success{{else}}pending{{/if}}">
+                    {{#if (eq paymentStatus 'succeeded')}}Pagado{{else}}Pendiente{{/if}}
+                </span>
+            </p>
+        </div>
+
+        <h3>Productos Comprados</h3>
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td>{{this.product.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>${{this.price}}</td>
+                    <td>${{multiply this.quantity this.price}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <div class="total-section">
+            <div class="total-row">
+                <span>Subtotal:</span>
+                <span>${{subtotal}}</span>
+            </div>
+            <div class="total-row">
+                <span>Envío:</span>
+                <span>${{shippingCost}}</span>
+            </div>
+            <div class="total-row">
+                <span>Impuestos:</span>
+                <span>${{tax}}</span>
+            </div>
+            <div class="total-row total-final">
+                <span>Total:</span>
+                <span>${{total}}</span>
+            </div>
+        </div>
+
+        <div class="shipping-info">
+            <h3>Dirección de Envío</h3>
+            <p><strong>{{shippingAddress.street}}</strong></p>
+            <p>{{shippingAddress.city}}, {{shippingAddress.state}} {{shippingAddress.zipCode}}</p>
+            <p>{{shippingAddress.country}}</p>
+        </div>
+
+        <div class="payment-info">
+            <h3>Información de Pago</h3>
+            <p><strong>Método:</strong> {{paymentMethod}}</p>
+            <p><strong>Estado:</strong> 
+                <span class="status {{#if (eq paymentStatus 'succeeded')}}success{{else}}pending{{/if}}">
+                    {{#if (eq paymentStatus 'succeeded')}}Confirmado{{else}}Pendiente{{/if}}
+                </span>
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{baseUrl}}/orders/{{orderNumber}}" class="btn">Ver Pedido</a>
+        </div>
+
+        <div class="footer">
+            <p>Si tienes alguna pregunta sobre tu pedido, no dudes en contactarnos.</p>
+            <p><strong>Equipo de Tienda Online</strong></p>
+            <p>Este es un email automático, por favor no responder.</p>
+        </div>
+    </div>
+</body>
+</html>

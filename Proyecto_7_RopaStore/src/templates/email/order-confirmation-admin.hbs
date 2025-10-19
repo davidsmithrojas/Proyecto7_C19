@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Compra - Notificación Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #dc3545;
+            margin: 0;
+            font-size: 28px;
+        }
+        .alert {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .order-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .order-info h2 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+        .customer-info {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .items-table th,
+        .items-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .items-table th {
+            background-color: #dc3545;
+            color: white;
+        }
+        .items-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .total-section {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .total-final {
+            font-weight: bold;
+            font-size: 18px;
+            color: #dc3545;
+            border-top: 2px solid #dc3545;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .shipping-info {
+            background-color: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .payment-info {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .actions {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚨 Nueva Compra Recibida</h1>
+            <p>Se ha realizado una nueva compra en la tienda</p>
+        </div>
+
+        <div class="alert">
+            <strong>⚠️ Acción Requerida:</strong> Revisa los detalles del pedido y procede con el procesamiento.
+        </div>
+
+        <div class="order-info">
+            <h2>Información del Pedido</h2>
+            <p><strong>Número de Pedido:</strong> #{{orderNumber}}</p>
+            <p><strong>Fecha y Hora:</strong> {{orderDate}}</p>
+            <p><strong>Estado del Pago:</strong> 
+                <span class="status {{#if (eq paymentStatus 'succeeded')}}success{{else}}pending{{/if}}">
+                    {{#if (eq paymentStatus 'succeeded')}}Pagado{{else}}Pendiente{{/if}}
+                </span>
+            </p>
+        </div>
+
+        <div class="customer-info">
+            <h3>Información del Cliente</h3>
+            <p><strong>Nombre:</strong> {{userName}}</p>
+            <p><strong>Email:</strong> {{userEmail}}</p>
+        </div>
+
+        <h3>Productos Comprados</h3>
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td>{{this.product.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>${{this.price}}</td>
+                    <td>${{multiply this.quantity this.price}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <div class="total-section">
+            <div class="total-row">
+                <span>Subtotal:</span>
+                <span>${{subtotal}}</span>
+            </div>
+            <div class="total-row">
+                <span>Envío:</span>
+                <span>${{shippingCost}}</span>
+            </div>
+            <div class="total-row">
+                <span>Impuestos:</span>
+                <span>${{tax}}</span>
+            </div>
+            <div class="total-row total-final">
+                <span>Total:</span>
+                <span>${{total}}</span>
+            </div>
+        </div>
+
+        <div class="shipping-info">
+            <h3>Dirección de Envío</h3>
+            <p><strong>{{shippingAddress.street}}</strong></p>
+            <p>{{shippingAddress.city}}, {{shippingAddress.state}} {{shippingAddress.zipCode}}</p>
+            <p>{{shippingAddress.country}}</p>
+        </div>
+
+        <div class="payment-info">
+            <h3>Información de Pago</h3>
+            <p><strong>Método:</strong> {{paymentMethod}}</p>
+            <p><strong>Estado:</strong> 
+                <span class="status {{#if (eq paymentStatus 'succeeded')}}success{{else}}pending{{/if}}">
+                    {{#if (eq paymentStatus 'succeeded')}}Confirmado{{else}}Pendiente{{/if}}
+                </span>
+            </p>
+        </div>
+
+        <div class="actions">
+            <h3>Acciones Disponibles</h3>
+            <a href="{{baseUrl}}/admin/orders/{{orderNumber}}" class="btn">Ver Pedido Completo</a>
+            <a href="{{baseUrl}}/admin/orders" class="btn btn-secondary">Ver Todos los Pedidos</a>
+        </div>
+
+        <div class="footer">
+            <p><strong>Sistema de Notificaciones - Tienda Online</strong></p>
+            <p>Este es un email automático del sistema de administración.</p>
+        </div>
+    </div>
+</body>
+</html>
