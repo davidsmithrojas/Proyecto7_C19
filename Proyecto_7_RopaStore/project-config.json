@@ -1,0 +1,99 @@
+{
+  "name": "Tienda de Ropa Online",
+  "version": "1.0.0",
+  "description": "E-commerce completo para tienda de ropa online",
+  "author": "Desarrollador",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usuario/ecommerce-ropa.git"
+  },
+  "scripts": {
+    "install-all": "npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "seed": "cd backend && npm run seed",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "ecommerce",
+    "tienda",
+    "ropa",
+    "react",
+    "nodejs",
+    "mongodb",
+    "stripe",
+    "jwt"
+  ],
+  "features": {
+    "frontend": [
+      "React 18 con Vite",
+      "TailwindCSS para estilos",
+      "React Router para navegación",
+      "Context API para estado global",
+      "React Hook Form para formularios",
+      "Axios para peticiones HTTP",
+      "Responsive design",
+      "PWA ready"
+    ],
+    "backend": [
+      "Node.js con Express",
+      "MongoDB con Mongoose",
+      "JWT para autenticación",
+      "bcryptjs para contraseñas",
+      "Joi para validación",
+      "Winston para logging",
+      "Stripe para pagos",
+      "Rate limiting",
+      "CORS configurado"
+    ],
+    "database": [
+      "MongoDB local/Atlas",
+      "Modelos optimizados",
+      "Índices para rendimiento",
+      "Validaciones de esquema",
+      "Relaciones entre colecciones"
+    ],
+    "security": [
+      "Autenticación JWT",
+      "Hashing de contraseñas",
+      "Validación de entrada",
+      "Rate limiting",
+      "CORS configurado",
+      "Headers de seguridad"
+    ]
+  },
+  "endpoints": {
+    "users": "/api/v1/users",
+    "products": "/api/v1/products",
+    "orders": "/api/v1/orders",
+    "payments": "/api/v1/payments",
+    "cart": "/api/v1/cart"
+  },
+  "ports": {
+    "backend": 5000,
+    "frontend": 3000
+  },
+  "database": {
+    "name": "proyecto_6_db",
+    "collections": [
+      "users",
+      "products",
+      "orders",
+      "carts",
+      "roleRequests"
+    ]
+  }
+}
