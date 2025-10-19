@@ -1,0 +1,195 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "RopaStore" [ref=e7]:
+          - /url: /
+          - generic [ref=e8]: RopaStore
+        - button [ref=e10] [cursor=pointer]:
+          - img [ref=e11]
+      - generic [ref=e14]:
+        - textbox "Buscar productos..." [ref=e15]
+        - img [ref=e16]
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e23]:
+        - heading "Encuentra tu Estilo" [level=1] [ref=e24]
+        - paragraph [ref=e25]: Descubre las mejores prendas de ropa con la mejor calidad y al mejor precio
+        - generic [ref=e26]:
+          - link "Ver Productos" [ref=e27]:
+            - /url: /products
+          - link "Ver Camisas" [ref=e28]:
+            - /url: /products?category=Camisas
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - img [ref=e34]
+          - heading "Envío Gratis" [level=3] [ref=e39]
+          - paragraph [ref=e40]: Envío gratis en compras superiores a $50.000
+        - generic [ref=e41]:
+          - img [ref=e43]
+          - heading "Compra Segura" [level=3] [ref=e45]
+          - paragraph [ref=e46]: Pagos 100% seguros con Stripe
+        - generic [ref=e47]:
+          - img [ref=e49]
+          - heading "Soporte 24/7" [level=3] [ref=e51]
+          - paragraph [ref=e52]: Atención al cliente disponible 24 horas
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - heading "Nuestras Categorías" [level=2] [ref=e56]
+          - paragraph [ref=e57]: Explora nuestra amplia gama de productos
+        - generic [ref=e58]:
+          - link "Camisas Camisas" [ref=e59]:
+            - /url: /products?category=Camisas
+            - img "Camisas" [ref=e61]
+            - heading "Camisas" [level=3] [ref=e63]
+          - link "Pantalones Pantalones" [ref=e64]:
+            - /url: /products?category=Pantalones
+            - img "Pantalones" [ref=e66]
+            - heading "Pantalones" [level=3] [ref=e68]
+          - link "Zapatos Zapatos" [ref=e69]:
+            - /url: /products?category=Zapatos
+            - img "Zapatos" [ref=e71]
+            - heading "Zapatos" [level=3] [ref=e73]
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - heading "Productos Destacados" [level=2] [ref=e77]
+          - paragraph [ref=e78]: Los productos más populares de nuestra tienda
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - img "Camisa Lino Verano" [ref=e82]
+            - generic [ref=e83]:
+              - heading "Camisa Lino Verano" [level=3] [ref=e84]
+              - paragraph [ref=e85]: Camisa de lino 100% para el verano, fresca y transpirable, ideal para climas cálidos
+              - generic [ref=e86]:
+                - generic [ref=e87]: $32,000
+                - link "Ver Detalles" [ref=e88]:
+                  - /url: /products/68f3f3ce93cbd1771a36965f
+          - generic [ref=e89]:
+            - img "Camisa Polo Casual" [ref=e91]
+            - generic [ref=e92]:
+              - heading "Camisa Polo Casual" [level=3] [ref=e93]
+              - paragraph [ref=e94]: Camisa polo de algodón piqué, perfecta para el día a día y actividades deportivas
+              - generic [ref=e95]:
+                - generic [ref=e96]: $18,000
+                - link "Ver Detalles" [ref=e97]:
+                  - /url: /products/68f3f3ce93cbd1771a36965b
+          - generic [ref=e98]:
+            - img "Pantalón Chino Elegante" [ref=e100]
+            - generic [ref=e101]:
+              - heading "Pantalón Chino Elegante" [level=3] [ref=e102]
+              - paragraph [ref=e103]: Pantalón chino de algodón, perfecto para oficina o eventos casuales elegantes
+              - generic [ref=e104]:
+                - generic [ref=e105]: $28,000
+                - link "Ver Detalles" [ref=e106]:
+                  - /url: /products/68f3f3ce93cbd1771a369667
+          - generic [ref=e107]:
+            - img "Pantalón Deportivo" [ref=e109]
+            - generic [ref=e110]:
+              - heading "Pantalón Deportivo" [level=3] [ref=e111]
+              - paragraph [ref=e112]: Pantalón deportivo con tecnología de secado rápido, ideal para actividades físicas
+              - generic [ref=e113]:
+                - generic [ref=e114]: $22,000
+                - link "Ver Detalles" [ref=e115]:
+                  - /url: /products/68f3f3ce93cbd1771a36966b
+          - generic [ref=e116]:
+            - img "Pantalón Jeans Clásico" [ref=e118]
+            - generic [ref=e119]:
+              - heading "Pantalón Jeans Clásico" [level=3] [ref=e120]
+              - paragraph [ref=e121]: Jeans de mezclilla clásico, corte recto y cómodo para cualquier ocasión
+              - generic [ref=e122]:
+                - generic [ref=e123]: $35,000
+                - link "Ver Detalles" [ref=e124]:
+                  - /url: /products/68f3f3ce93cbd1771a369663
+          - generic [ref=e125]:
+            - img "Pantalón Test" [ref=e127]
+            - generic [ref=e128]:
+              - heading "Pantalón Test" [level=3] [ref=e129]
+              - paragraph [ref=e130]: Pantalón de prueba
+              - generic [ref=e131]:
+                - generic [ref=e132]: $49.99
+                - link "Ver Detalles" [ref=e133]:
+                  - /url: /products/68f3f701d8e5a4fa23569520
+          - generic [ref=e134]:
+            - img "Pantalón Test 007637" [ref=e136]
+            - generic [ref=e137]:
+              - heading "Pantalón Test 007637" [level=3] [ref=e138]
+              - paragraph [ref=e139]: Pantalón de prueba
+              - generic [ref=e140]:
+                - generic [ref=e141]: $49.99
+                - link "Ver Detalles" [ref=e142]:
+                  - /url: /products/68f3ff0f27deb6251059aadf
+          - generic [ref=e143]:
+            - img "Pantalón Test 030783" [ref=e145]
+            - generic [ref=e146]:
+              - heading "Pantalón Test 030783" [level=3] [ref=e147]
+              - paragraph [ref=e148]: Pantalón de prueba
+              - generic [ref=e149]:
+                - generic [ref=e150]: $49.99
+                - link "Ver Detalles" [ref=e151]:
+                  - /url: /products/68f412ae4d179da426ea71aa
+        - link "Ver Todos los Productos" [ref=e153]:
+          - /url: /products
+      - generic [ref=e155]:
+        - heading "¡Mantente al día con nuestras ofertas!" [level=2] [ref=e156]
+        - paragraph [ref=e157]: Suscríbete a nuestro newsletter y recibe descuentos exclusivos
+        - generic [ref=e158]:
+          - textbox "Tu email" [ref=e159]
+          - button "Suscribirse" [ref=e160] [cursor=pointer]
+  - contentinfo [ref=e161]:
+    - generic [ref=e162]:
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]: RopaStore
+          - paragraph [ref=e166]: Tu tienda de ropa online de confianza. Encuentra las mejores prendas con la mejor calidad y al mejor precio.
+          - generic [ref=e167]:
+            - link [ref=e168]:
+              - /url: "#"
+              - img [ref=e169]
+            - link [ref=e171]:
+              - /url: "#"
+              - img [ref=e172]
+            - link [ref=e174]:
+              - /url: "#"
+              - img [ref=e175]
+        - generic [ref=e178]:
+          - heading "Enlaces Rápidos" [level=3] [ref=e179]
+          - list [ref=e180]:
+            - listitem [ref=e181]:
+              - link "Productos" [ref=e182]:
+                - /url: /products
+            - listitem [ref=e183]:
+              - link "Camisas" [ref=e184]:
+                - /url: /products?category=Camisas
+            - listitem [ref=e185]:
+              - link "Pantalones" [ref=e186]:
+                - /url: /products?category=Pantalones
+            - listitem [ref=e187]:
+              - link "Zapatos" [ref=e188]:
+                - /url: /products?category=Zapatos
+        - generic [ref=e189]:
+          - heading "Contacto" [level=3] [ref=e190]
+          - list [ref=e191]:
+            - listitem [ref=e192]:
+              - img [ref=e193]
+              - link "contacto@ropastore.com" [ref=e196]:
+                - /url: mailto:contacto@ropastore.com
+            - listitem [ref=e197]:
+              - img [ref=e198]
+              - link "+56 9 1234 5678" [ref=e200]:
+                - /url: tel:+56912345678
+            - listitem [ref=e201]:
+              - img [ref=e202]
+              - generic [ref=e205]: Santiago, Chile
+      - generic [ref=e207]:
+        - paragraph [ref=e208]: © 2024 RopaStore. Todos los derechos reservados.
+        - generic [ref=e209]:
+          - link "Política de Privacidad" [ref=e210]:
+            - /url: /privacy
+          - link "Términos y Condiciones" [ref=e211]:
+            - /url: /terms
+          - link "Envíos y Devoluciones" [ref=e212]:
+            - /url: /shipping
+```
